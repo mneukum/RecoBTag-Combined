@@ -1,15 +1,19 @@
-from keras.models import load_model
+import tensorflow as tf
+import tensorflow.keras as keras
+from tensorflow.keras.models import load_model
 import sys
+sys.modules["keras"] = tf.keras
 
 model_name = sys.argv[1]
 model = load_model(model_name)
 model.save_weights('DeepCSV_weights.h5')
 
 
-from models import dense_model
+#from models import dense_model
 from DeepJetCore.training.training_base import training_base
 
-from keras.layers import Dense, Dropout, Flatten, Convolution2D, merge, Convolution1D, Conv2D
+#from keras.layers import Dense, Dropout, Flatten, Convolution2D, merge, Convolution1D, Conv2D, BatchNormalization
+from keras.layers import Dense, Dropout, Flatten,Concatenate, Lambda, Convolution2D, LSTM, Convolution1D, Conv2D,GlobalAveragePooling1D, GlobalMaxPooling1D,TimeDistributed, BatchNormalization
 from keras.models import Model, Sequential
 
 nclasses = 4
