@@ -41,7 +41,7 @@ python3 lwtnn/converters/keras2json.py  DeepCSV_arch.json  DeepCSV_var.json  Dee
 7. Somehow the defaults of the variables are not written to DeepCSV_Phase2.json, therefore in DeepCSV_Phase2.json one needs to navigate to the line reading "defaults : {}"
 And replace the curly brackets with the content of defaults.json (which is created when running load_dc.py).
 
-8. run ./rename.sh 
+8. run `. rename.sh DeepCSV_Phase2.json` 
 This replaces the names of the variables with the ones used in CMSSW. (Need to check whether jetEta or jetAbsEta was used -> it is jetEta)
 
 The model is now converted.
